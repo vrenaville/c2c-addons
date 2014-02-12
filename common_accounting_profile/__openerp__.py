@@ -18,8 +18,8 @@
 #
 ##############################################################################
 {
-        "name" : "L10n_ch profile",
-        "description" : """Install all modules required for accounting in Switzerland
+        "name" : "Common accounting profile",
+        "description" : """Install all modules required for common accounting
         """,
         "version" : "1.0",
         "author" : "Camptocamp",

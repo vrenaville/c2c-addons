@@ -18,7 +18,7 @@
 #
 ##############################################################################
 {
-        "name" : "L10n_ch profile",
+        "name" : "L10n_ch accounting profile",
         "description" : """Install all modules required for accounting in Switzerland
         """,
         "version" : "1.0",

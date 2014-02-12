@@ -18,7 +18,7 @@
 #
 ##############################################################################
 {
-        "name" : "L10n_fr profile",
+        "name" : "l10n_fr accounting profile",
         "description" : """Install all modules required for accounting in France
         """,
         "version" : "1.0",
@@ -29,7 +29,7 @@
             'common_accounting_profile',
             'l10n_fr',
             'l10n_fr_rib',
-            'l10n-fr-siret',
+            'l10n_fr_siret',
                     ],
         "data" :[
                         ],
