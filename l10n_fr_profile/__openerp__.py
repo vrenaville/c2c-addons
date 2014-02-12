@@ -18,35 +18,18 @@
 #
 ##############################################################################
 {
-        "name" : "L10n_ch profile",
-        "description" : """Install all modules required for accounting in Switzerland
+        "name" : "L10n_fr profile",
+        "description" : """Install all modules required for accounting in France
         """,
         "version" : "1.0",
         "author" : "Camptocamp",
         "category" : "Accounting & Finance",
         "website": "http://www.camptocamp.com",
         "depends" : [
-            'account_accountant',
-            'account_constraints',
-            'account_default_draft_move',
-            'account_draft_invoice_print',
-            'account_financial_report_webkit',
-            'account_financial_report_webkit_xls',
-            'account-financial-report',
-            'account_journal_report_xls',
-            'account_move_line_report_xls',
-            'report_xls',
-            'account_export_csv',
-            'account_reversal',
-            'currency_rate_update',
-            'invoice_webkit',
-            'html_invoice_product_note',
-            'account_compute_tax_amount',
-            'base_iban',
-            'account_move_validation_improvement',
-            'invoicing_voucher_killer',
-            'statement_voucher_killer',
-            'account_advanced_reconcile'
+            'common_accounting_profile',
+            'l10n_fr',
+            'l10n_fr_rib',
+            'l10n-fr-siret',
                     ],
         "data" :[
                         ],
