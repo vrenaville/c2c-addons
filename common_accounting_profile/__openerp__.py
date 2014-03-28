@@ -39,7 +39,6 @@
             'account_reversal',
             'currency_rate_update',
             'invoice_webkit',
-            'html_invoice_product_note',
             'account_compute_tax_amount',
             'base_iban',
             'account_move_validation_improvement',
