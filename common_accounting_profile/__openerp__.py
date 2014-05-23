@@ -21,7 +21,7 @@
         "name" : "Common accounting profile",
         "description" : """Install all modules required for common accounting
         """,
-        "version" : "1.0",
+        "version" : "1.1",
         "author" : "Camptocamp",
         "category" : "Accounting & Finance",
         "website": "http://www.camptocamp.com",
@@ -49,6 +49,9 @@
             'invoicing_voucher_killer',
             'statement_voucher_killer',
             'account_advanced_reconcile',
+            'account_advanced_reconcile_transaction_ref',
+            'account_statement_tranactionid_completion',
+            'account_statement_transactionid_import',
                     ],
         "data" :[
                         ],
