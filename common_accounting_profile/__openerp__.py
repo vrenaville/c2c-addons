@@ -21,7 +21,7 @@
         "name" : "Common accounting profile",
         "description" : """Install all modules required for common accounting
         """,
-        "version" : "1.1.1",
+        "version" : "1.1.2",
         "author" : "Camptocamp",
         "category" : "Accounting & Finance",
         "website": "http://www.camptocamp.com",
@@ -38,7 +38,6 @@
             'account_export_csv',
             'account_reversal',
             'currency_rate_update',
-            'invoice_webkit',
             'account_compute_tax_amount',
             'base_iban',
             'account_move_validation_improvement',
