@@ -38,7 +38,7 @@ class budget_analysis(orm.Model):
     def init(self, cr):
         cr.execute("""
             -- Drop old existing view if exist
-            DROP FUNCTION IF EXISTS c2c_xrate_conversion(integer,integer,double precision,date);
+            DROP FUNCTION IF EXISTS c2c_xrate_conversion(integer,integer,double precision,date) CASCADE;
             CREATE OR REPLACE FUNCTION c2c_xrate_conversion(currency_id_base integer, currency_id_dest integer, value_base double precision, conversion_date date, out xrate numeric, out value_dest double precision)
 AS
 $BODY$
