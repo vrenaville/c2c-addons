@@ -34,9 +34,11 @@ class budget_analysis(orm.Model):
     _name = "budget.analysis"
     _description = "Budget analysis"
     _auto = False
- 
+
     def init(self, cr):
         cr.execute("""
+            -- Drop old existing view if exist
+            DROP FUNCTION IF EXISTS c2c_xrate_conversion(integer,integer,double precision,date);
             CREATE OR REPLACE FUNCTION c2c_xrate_conversion(currency_id_base integer, currency_id_dest integer, value_base double precision, conversion_date date, out xrate numeric, out value_dest double precision)
 AS
 $BODY$
@@ -50,7 +52,7 @@ DECLARE
 BEGIN
         -- The exchange rate is a ratio between source currency rate and destination currency rate, not necessarily at the same date
 	    -- This way of calculation makes the function independent from the company currency, as we don't obviously know it here
-	
+
         -- if destination currency and source currency are the same, just take the input values as it
         if currency_id_base = currency_id_dest
         then
@@ -60,7 +62,7 @@ BEGIN
         		-- read the last rate for source currency
         		FOR rcur IN SELECT rate FROM res_currency_rate WHERE currency_id=currency_id_base AND name <= conversion_date ORDER BY name DESC LIMIT 1 LOOP
         			xrate_base = rcur.rate;
-        		END LOOP;             
+        		END LOOP;
 
                 -- read the last rate for destination currency
         		FOR rcur IN SELECT rate FROM res_currency_rate WHERE currency_id=currency_id_dest AND name <= conversion_date ORDER BY name DESC LIMIT 1 LOOP
@@ -69,17 +71,17 @@ BEGIN
 
                 xrate:= xrate_dest / xrate_base;
                 value_dest := value_base * xrate;
-                
+
         end if;
-        
+
 END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
         """)
-        
+
         cr.execute("""
         DROP VIEW IF EXISTS c2c_ytd_dpt;
-        CREATE OR REPLACE VIEW c2c_ytd_dpt AS 
+        CREATE OR REPLACE VIEW c2c_ytd_dpt AS
  SELECT ail.account_analytic_id,
     ail.account_id,
     aa.code,
@@ -140,12 +142,12 @@ $BODY$
   WHERE ail.invoice_id = ai.id AND (ai.state::text = ANY (ARRAY['open'::character varying, 'paid'::character varying]::text[])) AND ai.currency_id = ai_currency.id AND ai.company_id = ai_company.id AND ail.account_id = aa.id AND to_char(ai.date_invoice::timestamp with time zone, 'yyyy'::text) = to_char('now'::text::date::timestamp with time zone, 'yyyy'::text);
 
     """)
-        
-        
-        
+
+
+
         cr.execute("""
         DROP VIEW IF EXISTS c2c_budget_analytic;
-        CREATE OR REPLACE VIEW c2c_budget_analytic AS 
+        CREATE OR REPLACE VIEW c2c_budget_analytic AS
  SELECT
         CASE
             WHEN bl.date_start IS NULL THEN 'now'::text::date
@@ -184,6 +186,6 @@ $BODY$
   WHERE bl.budget_item_id = budget_item.id AND bl.budget_version_id = budget_version.id AND budget_item.parent_id = bi.id AND bl.currency_id = bl_currency.id;
   """)
 
-        
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:        
- 
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
