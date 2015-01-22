@@ -28,11 +28,10 @@
 Advanced budget analysis
 ========================
 
-Following views are added to provide detailled informations regarding budget.
+Following views are added to provide detailed informations regarding budget.
 Actually there is no internal views to show the result, as the informations are exploited through some BI cube.
 It is recommended to use Excel Sheet and its Pivot tables to gain all analytic capabilities.
 
-[Add some documentation link here]
 
 Views:
 ------
