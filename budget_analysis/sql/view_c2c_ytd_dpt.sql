@@ -57,5 +57,5 @@ CREATE OR REPLACE VIEW c2c_ytd_dpt AS
   WHERE aml.analytic_account_id > 0 AND aml.move_id = am.id AND aml.journal_id = aj.id
   AND aml.company_id = aml_company.id AND aml.account_id = aa.id
   AND (to_number(to_char('now'::date::timestamp without time zone, 'yyyy'::text), '9999'::text) - 
-    to_number(to_char(aml.date::timestamp without time zone, 'yyyy'::text), '9999'::text)) <= 1::numeric;
+    to_number(to_char(aml.date::timestamp without time zone, 'yyyy'::text), '9999'::text)) <= 2::numeric;
 
