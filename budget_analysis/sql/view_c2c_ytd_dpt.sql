@@ -43,9 +43,9 @@ CREATE OR REPLACE VIEW c2c_ytd_dpt AS
            FROM account_account_budget_item_rel rel,
             budget_item bi,
             account_account account
-          WHERE rel.account_account_id = account.id AND bi.id = rel.budget_item_id) parent_account ON parent_account.parent_left < (( SELECT account_account.parent_left
+          WHERE rel.account_account_id = account.id AND bi.id = rel.budget_item_id) parent_account ON parent_account.parent_left <= (( SELECT account_account.parent_left
            FROM account_account
-          WHERE account_account.id = aml.account_id)) AND parent_account.parent_right > (( SELECT account_account.parent_left
+          WHERE account_account.id = aml.account_id)) AND parent_account.parent_right >= (( SELECT account_account.parent_left
            FROM account_account
           WHERE account_account.id = aml.account_id))
      LEFT JOIN account_analytic_account aac ON aml.analytic_account_id = aac.id
