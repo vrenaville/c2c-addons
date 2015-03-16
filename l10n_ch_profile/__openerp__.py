@@ -34,10 +34,6 @@
             'l10n_ch_payment_slip',
             'l10n_ch_zip',
             'l10n_multilang',
-            'payment_term_rounding',
-	    'l10n_ch_dta_base_transaction_id',
-	    'l10n_ch_payment_slip_base_transaction_id',
-	    'l10n_ch_payment_slip_account_statement_base_completion'
                     ],
         "data" :[
                         ],
