@@ -38,6 +38,9 @@
             'account_reversal',
             'currency_rate_update',
             'account_compute_tax_amount',
+            'account_tax_analysis',
+            'account_balance_line',
+            'account_move_line_no_default_search',
             'base_iban',
                     ],
         "data" :[
