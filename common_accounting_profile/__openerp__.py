@@ -28,6 +28,8 @@
         "depends" : [
             'account_accountant',
             'account_constraints',
+            'account_cancel',
+            'account_move_locking',
             'account_financial_report_webkit',
             'account_financial_report_webkit_xls',
             'account_journal_report_xls',
