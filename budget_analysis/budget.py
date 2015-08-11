@@ -21,7 +21,7 @@
 
 from openerp.osv import orm, fields
 from openerp import tools
-from openerp.addons import get_module_resource
+from openerp.modules import get_module_resource
 
 
 class budget_analysis(orm.Model):
