@@ -28,7 +28,6 @@
         "depends" : [
             'account_accountant',
             'account_constraints',
-            'account_default_draft_move',
             'account_financial_report_webkit',
             'account_financial_report_webkit_xls',
             'account_journal_report_xls',
@@ -42,6 +41,10 @@
             'account_balance_line',
             'account_move_line_no_default_search',
             'base_iban',
+            'account_balance_line',
+            'account_cancel',
+            'account_move_locking',
+            'account_partner_required'
                     ],
         "data" :[
                         ],
